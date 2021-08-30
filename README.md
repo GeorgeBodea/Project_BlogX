@@ -1,2 +1,2 @@
-# Project_BlogX
-A website about personal blogs.
+# Project_BlogX.
+Aplicatie web pentru blog-uri personale.
