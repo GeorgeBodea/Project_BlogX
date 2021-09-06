@@ -63,7 +63,7 @@ class BlogController extends Controller
      */
     public function show($id)
     {
-        
+        return view('main.show_blog')->with('blog', Blog::where('id', $id)->first());
     }
 
     /**
@@ -74,7 +74,7 @@ class BlogController extends Controller
      */
     public function edit($id)
     {
-
+        return view('main.edit_blog')->with('blog', Blog::where('id', $id)->first());
     }
 
     /**
