@@ -19,7 +19,7 @@
         </li>
 
         <li class="font-extrabold block text-4xl py-1">
-          <a href="/blogs">
+          <a href="/blog">
             See your post
           </a>
         </li>

@@ -14,8 +14,7 @@ class BlogController extends Controller
      */
     public function index()
     {
-        $blogs = Blog::orderBy('updated_at', 'DESC')->get();
-        return view('main.blogs')->with('blogs', $blogs);
+        return view('main.blogs')->with( 'blogs', Blog::orderBy('updated_at', 'DESC')->paginate(3) );
     }
 
     /**
@@ -25,7 +24,7 @@ class BlogController extends Controller
      */
     public function create()
     {
-        //
+        return view("main.create_blog");
     }
 
     /**
@@ -36,7 +35,24 @@ class BlogController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $request->validate([
+            'title' => 'required',
+            'details' => 'required',
+            'image' => 'required|mimes:jpg,png,jpeg|max:5048'
+        ]);
+
+        $newImageName = uniqid() . '-' . $request->title . '.' . $request->image->extension();
+
+        $request->image->move(public_path('images'), $newImageName);
+
+        Blog::create([
+            'title' => $request -> input('title'),
+            'details' => $request->input('details'),
+            'path_image' => $newImageName,
+            'user_id' => auth()->user()->id
+        ]);
+
+        return redirect('/blog')->with('message', 'Created blog successfully!');
     }
 
     /**
@@ -47,7 +63,7 @@ class BlogController extends Controller
      */
     public function show($id)
     {
-        //
+        
     }
 
     /**
@@ -58,7 +74,7 @@ class BlogController extends Controller
      */
     public function edit($id)
     {
-        //
+
     }
 
     /**
@@ -70,7 +86,18 @@ class BlogController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $request->validate([
+            'title' => 'required',
+            'details' => 'required'
+        ]);
+
+        Blog::where('id', $id)->update([
+            'title' => $request -> input('title'),
+            'details' => $request->input('details'),
+            'user_id' => auth()->user()->id    
+        ]);
+
+        return redirect('/blog')->with('message', 'Updated blog successfully!');
     }
 
     /**
@@ -81,6 +108,9 @@ class BlogController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $blog = Blog::where('id', $id);
+        $blog->delete();
+
+        return redirect('/blog')->with('message', 'Deleted blog successfully!');
     }
 }
