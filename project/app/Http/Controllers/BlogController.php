@@ -51,7 +51,7 @@ class BlogController extends Controller
         $request->image->move(public_path('images'), $newImageName);
 
         Blog::create([
-            'title' => $request -> input('title'),
+            'title' => $request->input('title'),
             'details' => $request->input('details'),
             'path_image' => $newImageName,
             'user_id' => auth()->user()->id

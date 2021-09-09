@@ -17,6 +17,7 @@
         "fakerphp/faker": "^1.9.1",
         "laravel-frontend-presets/tailwindcss": "^4.3",
         "laravel/browser-kit-testing": "^6.2",
+        "laravel/dusk": "^6.18",
         "laravel/sail": "^1.0.1",
         "mockery/mockery": "^1.4.2",
         "nunomaduro/collision": "^5.0",
