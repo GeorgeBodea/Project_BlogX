@@ -6,7 +6,7 @@ use Illuminate\Foundation\Testing\RefreshDatabase;
 use Illuminate\Foundation\Testing\WithFaker;
 use Tests\TestCase;
 
-class DirectareTest extends TestCase
+class DirectareEsuataTest extends TestCase
 {
     /**
      * A basic feature test example.
@@ -15,8 +15,8 @@ class DirectareTest extends TestCase
      */
     public function test_example()
     {
-        $raspuns = $this->get('/');
+        $raspuns = $this->get('/admin');
 
-        $raspuns->assertStatus(200);
+        $raspuns->assertStatus(404);
     }
 }

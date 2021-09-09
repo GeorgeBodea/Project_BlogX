@@ -6,7 +6,7 @@ use Illuminate\Foundation\Testing\DatabaseMigrations;
 use Laravel\Dusk\Browser;
 use Tests\DuskTestCase;
 
-class ExampleTest extends DuskTestCase
+class ObservareTextTest extends DuskTestCase
 {
     /**
      * A basic browser test example.
@@ -16,7 +16,7 @@ class ExampleTest extends DuskTestCase
     public function testBasicExample()
     {
         $this->browse(function (Browser $browser) {
-            $browser->visit('/')->assertSee('Home');;
+            $raspuns = $browser->visit('login')->assertSee('Login');
         });
     }
 }

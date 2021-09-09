@@ -7,7 +7,7 @@ use Illuminate\Foundation\Testing\WithFaker;
 use Tests\TestCase;
 use App\Models\User;
 
-class FirstTest extends TestCase
+class UserTest extends TestCase
 {
     /**
      * A basic feature test example.
