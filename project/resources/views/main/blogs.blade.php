@@ -76,4 +76,6 @@
       </div>
     @endforeach
 
+{{ $blogs->links() }}
+
 @endsection
