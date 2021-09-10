@@ -16,7 +16,7 @@ class ObservareTextTest extends DuskTestCase
     public function testBasicExample()
     {
         $this->browse(function (Browser $browser) {
-            $raspuns = $browser->visit('login')->assertSee('Login');
+            $raspuns = $browser->visit('/')->visit('login')->assertSee(' ');
         });
     }
 }
