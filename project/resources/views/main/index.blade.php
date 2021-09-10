@@ -13,7 +13,7 @@
           Hellow there! Read amazing stories about incredible people
         </h1>
 
-        <a href="/blogs"
+        <a href="/blog"
            class="text-center bg-gray-50 text-gray-700 py-2 px-4 text-xl rounded-2xl">
            Click here
         </a>
